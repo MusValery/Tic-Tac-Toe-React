@@ -1,21 +1,22 @@
 import React from 'react';
-import { ReactComponent as CrownIcon } from '../../assets/crown.svg';
+import CrownIcon from '../../assets/crown.svg';
+import ShopBag from '../../assets/shopping-bag.svg';
 import './header.styles.scss';
-import CartIcon from '../cart-icon/cart-icon.component';
+import {Link} from "react-router-dom";
 
 const Header = () => (
   <header className="header">
-    <a href="#" className="logo-container">
-      <CrownIcon />
-    </a>
+    <Link to="/" className="logo-container">
+      <img src={CrownIcon} alt="Logo"/>
+    </Link>
 
     <div className="options">
-      <nav>
-        <a href="#" className="option">Shop</a>
-        <a href="#" className="option">Sign in</a>
-      </nav>
-
-      <CartIcon />
+        <Link to="shop" className="option">Shop</Link>
+        <Link to="sign-in" className="option">Sign in</Link>
+    <div className="cart">
+          <img src={ShopBag} alt="Bag" />
+          <span>0</span>
+      </div>
     </div>
   </header>
 );

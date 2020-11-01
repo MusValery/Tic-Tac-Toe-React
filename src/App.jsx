@@ -1,14 +1,16 @@
-import React from 'react';
-
+import React from "react";
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import Routes from '../src/Routes';
 import './App.css';
-import Header from './components/header/header.component';
-import Homepage from './pages/homepage.component';
 
-const App = () => (
-  <div>
-    <Header />
-    <Homepage />
-  </div>
-);
+const history = createBrowserHistory();
 
+const App = () => {
+  return (
+      <Router history={history}>
+        <Routes />
+      </Router>
+  )
+};
 export default App;
