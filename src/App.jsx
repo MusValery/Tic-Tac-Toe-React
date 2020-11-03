@@ -1,16 +1,25 @@
 import React from "react";
-import { Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-import Routes from '../src/Routes';
+import { Switch, Route } from 'react-router-dom';
+import Header from './components/header/header.component';
+import Homepage from './pages/homepage.component';
 import './App.css';
+import Collection from "./pages/collection/collection.component";
+import ShopPage from './pages/shop/shop-page';
+import SignIn from './pages/singIn/singIn';
 
-const history = createBrowserHistory();
 
-const App = () => {
-  return (
-      <Router history={history}>
-        <Routes />
-      </Router>
-  )
-};
+
+const App = () => (
+  <div>
+    <Header />
+    <Switch>
+      <Route path='/shop/:collection' component={Collection}/>
+      <Route path='/shop' component={ShopPage}/>
+      <Route path='/sign-in' component={SignIn}/>
+      <Route path='/' component={Homepage} />
+      <Homepage />
+    </Switch>
+  </div>
+);
+
 export default App;

@@ -1,27 +1,25 @@
 import React from 'react';
 import './menu-item.styles.scss';
-import {Link} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const MenuItem = ({ title, imageUrl, linkUrl, size }) => {
-  const img = {
-    backgroundImage: `url(${imageUrl})`
-  }
-  const classItemSize = size ? 'menu-item ' + size : 'menu-item';
-  const link = `/shop/${linkUrl}`
+  const history = useHistory();
+
   return (
-      <Link
-          to={link}
-          className={classItemSize}
-      >
+    <div
+      role='button'
+      tabIndex='0'
+      onClick={() => history.push(`/shop/${linkUrl}`)}
+      className={`menu-item ${size || ''}`}>
           <div
               className="background-image"
-              style={img}>
+              style={{ backgroundImage: `url(${imageUrl})`}}>
           </div>
           <div className="content">
-             <span className="title">{title}</span>
+             <span className="title">{title.toUpperCase()}</span>
             <span className="subtitle">Shop now</span>
          </div>
-      </Link>
+         </div>
   )
 };
 

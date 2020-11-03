@@ -11,11 +11,12 @@ const Header = () => (
     </Link>
 
     <div className="options">
-        <Link to="shop" className="option">Shop</Link>
-        <Link to="sign-in" className="option">Sign in</Link>
+        <Link to="/shop" className="option">Shop</Link>
+        <Link to="/sign-in" className="option">Sign in</Link>
+        <Link to="cart" className="cart-icon"></Link>
     <div className="cart">
-          <img src={ShopBag} alt="Bag" />
-          <span>0</span>
+          <img className='shopping-icon' src={ShopBag} alt="Bag" />
+          <span className='item-count'>0</span>
       </div>
     </div>
   </header>

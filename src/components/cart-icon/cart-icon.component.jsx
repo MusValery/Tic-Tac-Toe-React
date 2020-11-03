@@ -6,6 +6,7 @@ const CartIcon = () => (
   <div className="cart-icon">
     <ShoppingIcon className="shopping-icon" />
   </div>
+
 );
 
 export default CartIcon;
