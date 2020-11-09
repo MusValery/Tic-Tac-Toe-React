@@ -1,25 +1,37 @@
 import React from 'react';
-import CrownIcon from '../../assets/crown.svg';
-import ShopBag from '../../assets/shopping-bag.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { ReactComponent as CrownIcon } from '../../assets/crown.svg';
 import './header.styles.scss';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { toggleCart } from '../../redux/cart/cart.actions';
+import { selectCartIsOpened } from '../../redux/cart/cart.selectors';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown';
 
-const Header = () => (
-  <header className="header">
-    <Link to="/" className="logo-container">
-      <img src={CrownIcon} alt="Logo"/>
-    </Link>
+const Header = () => {
+  const isVisible = useSelector(selectCartIsOpened);
+  const dispatch = useDispatch();
 
-    <div className="options">
-        <Link to="/shop" className="option">Shop</Link>
-        <Link to="/sign-in" className="option">Sign in</Link>
-        <Link to="cart" className="cart-icon"></Link>
-    <div className="cart">
-          <img className='shopping-icon' src={ShopBag} alt="Bag" />
-          <span className='item-count'>0</span>
+  const setVisible = () => dispatch(toggleCart());
+
+  return (
+    <header className="header">
+      <Link to="/" className="logo-container">
+        <CrownIcon />
+      </Link>
+
+      <div className="options">
+        <nav>
+          <Link to="/shop" className="option">Shop</Link>
+          <Link to="/auth" className="option">Sign in</Link>
+        </nav>
+
+        <CartIcon onToggle={() => setVisible(!isVisible)}/>
+
+        { isVisible && <CartDropdown /> }
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 export default Header;
