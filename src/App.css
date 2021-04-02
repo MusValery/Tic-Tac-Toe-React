@@ -1,13 +1,204 @@
 body {
-  font-family: 'Open Sans Condensed';
-  padding: 20px 40px;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 20px;
+    background: #626a85; 
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: white;
+    text-align: left;
+  }
+  *, ::after, ::before {
+    box-sizing: border-box;
 }
-
-a {
-  text-decoration: none;
-  color: black;
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #626a85;
+    position: fixed;
+  }
+.screen {
+  flex-direction: column;
+  height: 400px;
+  background: #fff;
+  width: 300px;
+  box-shadow: 6px 6px 5px grey;
 }
+.screen, .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10vh;
+  box-shadow: 0 2px 5px grey;
+}
+  .title {
+    width: 30%;
+  }
+  .statistics {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 70%;
+  }
+  .game {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+  }
+  #tile0 {
+    border-right: 2px solid #d874d8;
+    border-bottom: 2px solid #d874d8;
+    color: rgb(214, 210, 193);
+    background-color: rgb(73, 67, 122);
+  }
 
-* {
+  #tile1 {
+    border-right: 2px solid #d874d8;
+    border-left: 2px solid #d874d8;
+    border-bottom: 2px solid #d874d8;
+    color: rgb(214, 210, 193);
+    background-color: rgb(73, 67, 122);
+  }
+
+  #tile2 {
+    border-left: 2px solid #d874d8;
+    border-bottom: 2px solid #d874d8;
+    color: rgb(214, 210, 193);
+    background-color: rgb(73, 67, 122);
+  }
+
+  #tile3 {
+    border-right: 2px solid #d874d8;
+    border-top: 2px solid #d874d8;
+    border-bottom: 2px solid #d874d8;
+    color: rgb(214, 210, 193);
+    background-color: rgb(73, 67, 122);
+  }
+
+  #tile4 {
+    border: 1px solid #d874d8;
+    color: rgb(214, 210, 193);
+    background-color: rgb(73, 67, 122);
+  }
+
+  #tile5 {
+    border-top: 2px solid #d874d8;
+    border-left: 2px solid #d874d8;
+    border-bottom: 2px solid #d874d8;
+    color: rgb(214, 210, 193);
+    background-color: rgb(73, 67, 122);
+  }
+
+  #tile6 {
+    border-right: 2px solid #d874d8;
+    border-top: 2px solid #d874d8;
+    color: rgb(214, 210, 193);
+    background-color: rgb(73, 67, 122);
+  }
+
+  #tile7 {
+    border-right: 2px solid #d874d8;
+    border-left: 2px solid #d874d8;
+    border-top: 2px solid #d874d8;
+    color: rgb(214, 210, 193);
+    background-color: rgb(73, 67, 122);
+  }
+
+  #tile8 {
+    border-top: 2px solid #d874d8;
+    border-left: 2px solid #d874d8;
+    color: rgb(214, 210, 193);
+    background-color: rgb(73, 67, 122);
+  }
+  .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-left: 12px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+button {
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
   box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.tile {
+  width: 110px;
+  height: 110px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 5em;
+  font-weight: 700;
+}
+.game p {
+  font-size: 2em;
+  font-weight: 700;
+}
+.board {
+  height: 330px;
+  width: 330px;
+  flex-wrap: wrap;
+  box-shadow: 6px 6px 10px grey;
+}
+.game {
+  flex-direction: column;
+  height: 80vh;
+}
+.board, .game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
